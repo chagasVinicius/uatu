@@ -9,3 +9,6 @@ bin
 build
 target
 ktDebugJsonLog.txt
+airflow/logs/*
+airflow/dags/*
+airflow/plugins/*
