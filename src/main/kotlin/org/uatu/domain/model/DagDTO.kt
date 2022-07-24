@@ -1,4 +1,4 @@
-package org.uatu.domain.model.dag
+package org.uatu.domain.model
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerialName

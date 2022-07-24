@@ -1,6 +1,7 @@
 package org.uatu.plugins
 
 import io.ktor.client.HttpClient
+import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.client.request.header
@@ -21,6 +22,7 @@ import io.ktor.client.plugins.observer.ResponseObserver
 import io.ktor.client.request.header
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
+import org.uatu.domain.model.DagDTO
 
 class DagApi {
     val client = HttpClient(CIO) {
@@ -58,5 +60,5 @@ class DagApi {
         }
     }
 
-    suspend fun getDags(): HttpResponse = client.get("http://localhost:8080/api/v1/dags")
+    suspend fun getDags(): DagDTO  = client.get("http://localhost:8080/api/v1/dags").body()
 }
