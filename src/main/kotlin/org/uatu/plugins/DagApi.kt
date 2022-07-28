@@ -23,12 +23,16 @@ import io.ktor.client.request.header
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import org.uatu.domain.model.DagDTO
+import org.uatu.domain.model.DagsDTO
 
 class DagApi {
     val client = HttpClient(CIO) {
 
         install(ContentNegotiation) {
-            json()
+            json(Json {
+                    prettyPrint = true
+                    isLenient = true
+                })
         }
 
         install(Logging) {
@@ -60,5 +64,5 @@ class DagApi {
         }
     }
 
-    suspend fun getDags(): DagDTO  = client.get("http://localhost:8080/api/v1/dags").body()
+    suspend fun getDags(): HttpResponse  = client.get("http://localhost:8080/api/v1/dags")
 }

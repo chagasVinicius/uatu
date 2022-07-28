@@ -1,7 +1,7 @@
 package org.uatu.plugins
 
-import org.uatu.domain.model.DagDTO
+import org.uatu.domain.model.DagsDTO
 
 interface DagRepository {
-    suspend fun getDags(): DagDTO
+    suspend fun getDags(): DagsDTO
 }

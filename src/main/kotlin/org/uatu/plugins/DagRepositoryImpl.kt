@@ -2,16 +2,16 @@ package org.uatu.plugins
 
 import org.uatu.plugins.DagRepository
 import org.uatu.plugins.DagApi
-import org.uatu.domain.model.DagDTO
+import org.uatu.domain.model.DagsDTO
 import io.ktor.client.call.body
 
 
 class DagRepositoryImpl(
     private val api: DagApi
 ): DagRepository {
-    override suspend fun getDags(): DagDTO {
+    override suspend fun getDags(): DagsDTO {
         val response = api.getDags()
-        val result: DagDTO = response.body()
+        val result: DagsDTO = response.body()
         print(result)
         return result
     }
