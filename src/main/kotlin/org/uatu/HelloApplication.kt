@@ -10,6 +10,7 @@ import org.koin.ktor.ext.inject
 import org.koin.ktor.plugin.Koin
 import org.koin.logger.slf4jLogger
 import org.uatu.routes.DagRoute
+import org.uatu.modules.dagModule
 
 fun main(args: Array<String>) {
     // Start Ktor
@@ -22,7 +23,7 @@ fun Application.main() {
 //    install(CallLogging)
     install(Koin) {
         slf4jLogger()
-        modules(helloAppModule)
+        modules(helloAppModule, dagModule)
     }
 
     // Lazy inject HelloService
